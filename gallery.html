@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Vantage Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <div class="gallery-header">
+        <h1>Risk Vantage Gallery</h1>
+    </div>
+    <!-- Image Container for RisK Vantage Gallery -->
+    <div class="gallery-container">
+        <div class="gallery-item" onclick="openSlideshow(0)">
+            <img src="Disas1.jpg" alt="Gallery Image 1">
+            <div class="gallery-title">Flooding at Baguio</div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(1)">
+            <img src="Disas2.jpg" alt="Gallery Image 2">
+            <div class="gallery-title">Flooding at Banangan</div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(2)">
+            <img src="Disas3.jpg" alt="Gallery Image 3">
+            <div class="gallery-title">Aftermath of Typhoon</div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(3)">
+            <img src="Disas4.jpg" alt="Gallery Image 4">
+            <div class="gallery-title">Flooding at Monglo</div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(4)">
+            <img src="Disas5.jpg" alt="Gallery Image 5">
+            <div class="gallery-title">Forest Fire</div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(5)">
+            <img src="Disas6.jpg" alt="Gallery Image 6">
+            <div class="gallery-title">Aftermath of Typhoon </div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(6)">
+            <img src="Disas7.jpg" alt="Gallery Image 7">
+            <div class="gallery-title">Aftermath of House Fire</div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(7)">
+            <img src="Disas8.jpg" alt="Gallery Image 8">
+            <div class="gallery-title">Disaster Wave</div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(8)">
+            <img src="Disas9.jpg" alt="Gallery Image 9">
+            <div class="gallery-title">House Fire</div>
+        </div>
+        <div class="gallery-item" onclick="openSlideshow(9)">
+            <img src="Disas10.jpg" alt="Gallery Image 10">
+            <div class="gallery-title">Aftermath of Disaster</div>
+        </div>
+    </div>
+
+    <div id="slideshow" class="slideshow">
+        <span class="close" onclick="closeSlideshow()">&times;</span>
+        <img id="slideshow-image" src="" alt="Slideshow Image">
+        <div class="controls">
+            <button onclick="prevImage()">Previous</button>
+            <button onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const images = ['Disas1.jpg', 'Disas2.jpg', 'Disas3.jpg', 'Disas4.jpg', 'Disas5.jpg', 'Disas6.jpg', 'Disas7.jpg', 'Disas8.jpg', 'Disas9.jpg', 'Disas10.jpg']; 
+        let currentIndex = 0;
+        // Display of Individually Pic
+        function openSlideshow(index) {
+            currentIndex = index;
+            document.getElementById('slideshow').style.display = 'flex';
+            showImage(currentIndex);
+        }
+
+        function closeSlideshow() {
+            document.getElementById('slideshow').style.display = 'none';
+        }
+
+        function showImage(index) {
+            const slideshowImage = document.getElementById('slideshow-image');
+            slideshowImage.src = images[index];
+        }
+        // Next and Previous Button
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+    </script>
+</body>
+</html>
